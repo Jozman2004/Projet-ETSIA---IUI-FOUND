@@ -1,0 +1,42 @@
+<!DOCTYPE manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yourcompany.yourapp">   <!-- MODIFIED: Replace with your real package name -->
+
+    <!-- =================================================================== -->
+    <!-- PERMISSION TO ACCESS THE CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- ADDED: This tells the Google Play Store that the camera is an optional feature. -->
+    <!-- This fixes the "Permission exists without corresponding hardware" warning. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <!-- =================================================================== -->
+
+    <!-- Internet permission, usually already present by default -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="your_app_name"
+        android:icon="@mipmap/ic_launcher"> <!-- REMOVED: android:name="${applicationName}" -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme"
+                />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+</manifest>
